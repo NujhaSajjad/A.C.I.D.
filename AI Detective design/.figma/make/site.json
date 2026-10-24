@@ -1,0 +1,10 @@
+{
+  "description": "This advanced AI detective command center empowers investigators to analyze evidence, uncover connections, and solve cases with a premium, cinematic interface.",
+  "robots": {
+    "index": false
+  },
+  "accessibility": {
+    "addBypassLinks": false,
+    "ignoreReducedMotion": false
+  }
+}

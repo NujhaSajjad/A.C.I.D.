@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>A.C.I.D. — Case Intelligence</title>
+  <link rel="stylesheet" href="/static/style.css" />
+</head>
+<body>
+  <div class="app-shell">
+    <!-- Sidebar -->
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-brand">
+        <div class="brand-mark" id="brand-icon"></div>
+        <div>
+          <strong>A.C.I.D.</strong>
+          <span>Case Intelligence</span>
+        </div>
+        <button class="icon-button mobile-close" id="sidebar-close" aria-label="Close sidebar"></button>
+      </div>
+      <div class="side-head">
+        <span>Case archive</span>
+        <span class="count" id="case-count">00</span>
+      </div>
+      <button class="side-new" id="new-case-btn">
+        <span class="icon" data-icon="plus"></span> New case
+      </button>
+      <div class="case-list" id="case-list"></div>
+      <div class="side-spacer"></div>
+      <nav class="side-links">
+        <button><span class="icon" data-icon="settings"></span> Settings</button>
+        <button><span class="icon" data-icon="help"></span> Intelligence help</button>
+      </nav>
+      <div class="investigator">
+        <div class="avatar">AK</div>
+        <div>
+          <strong>Alex Kane</strong>
+          <span>Lead investigator</span>
+        </div>
+        <span class="icon" data-icon="chevron"></span>
+      </div>
+    </aside>
+    <button class="sidebar-scrim" id="sidebar-scrim" aria-label="Close sidebar"></button>
+
+    <!-- Main -->
+    <div class="app-main">
+      <header class="topbar">
+        <button class="icon-button mobile-menu" id="mobile-menu" aria-label="Open sidebar"></button>
+        <div class="product">
+          <span>Autonomous Crime Investigation &amp; Detection</span>
+          <strong>Case intelligence system</strong>
+        </div>
+        <div class="system-online"><i></i> System online</div>
+        <div class="top-actions">
+          <button class="icon-button" aria-label="Search"><span class="icon" data-icon="search"></span></button>
+          <button class="icon-button notification" aria-label="Notifications"><span class="icon" data-icon="bell"></span><i></i></button>
+          <div class="ai-health">
+            <span class="icon" data-icon="shield"></span>
+            <span>AI integrity</span>
+            <strong>99.8%</strong>
+          </div>
+          <button class="new-case" id="new-case-btn-2">
+            <span class="icon" data-icon="plus"></span> <span>New case</span>
+          </button>
+        </div>
+      </header>
+
+      <main>
+        <!-- Case header -->
+        <section class="case-header">
+          <div class="case-copy">
+            <div class="eyebrow">
+              <span id="case-id-label">Case</span>
+              <i></i>
+              <span id="case-status-pill">Active investigation</span>
+            </div>
+            <h1 id="case-title">The Stolen <em>Prototype</em></h1>
+            <p id="case-desc">A company prototype device went missing from the office after hours on Friday.</p>
+            <div class="case-tags">
+              <span><i class="active-dot"></i> Active</span>
+              <span>Priority <b>High</b></span>
+              <span id="case-opened">Opened recently</span>
+            </div>
+          </div>
+          <div class="case-actions">
+            <div class="metric-grid">
+              <div><strong id="metric-persons">03</strong><span>Persons<br>of interest</span></div>
+              <div><strong id="metric-evidence">00</strong><span>Evidence<br>items</span></div>
+              <div><strong id="metric-leads">00</strong><span>Active<br>leads</span></div>
+              <div class="danger-metric"><strong id="metric-conflicts">00</strong><span>Critical<br>conflicts</span></div>
+            </div>
+            <button class="run-button" id="investigate-btn">
+              <span class="run-icon"><span class="icon" data-icon="spark"></span></span>
+              <span>
+                <strong>Run investigation</strong>
+                <small>Analyze evidence &amp; discover connections</small>
+              </span>
+              <span class="icon" data-icon="arrow"></span>
+            </button>
+          </div>
+        </section>
+
+        <!-- Module selector -->
+        <div class="module-wrap">
+          <div class="section-label">
+            <span>Investigation modules</span>
+            <button id="graph-link"><span class="icon" data-icon="graph"></span> Knowledge graph</button>
+          </div>
+          <div class="modules" id="modules"></div>
+        </div>
+
+        <!-- Views -->
+        <section id="view-analysis" class="workspace view-enter"></section>
+        <section id="view-evidence" class="workspace" style="display:none"></section>
+        <section id="view-timeline" class="workspace" style="display:none"></section>
+        <section id="view-connections" class="workspace" style="display:none"></section>
+        <section id="view-acid" class="workspace" style="display:none"></section>
+      </main>
+    </div>
+  </div>
+
+  <!-- Investigation overlay -->
+  <div class="investigation-overlay hidden" id="investigation-overlay">
+    <div class="investigation-modal">
+      <button class="icon-button modal-close" id="overlay-close" aria-label="Close"><span class="icon" data-icon="close"></span></button>
+      <div class="processing-core">
+        <div class="acid-core" id="overlay-core">
+          <div class="orbit orbit-one"><i></i><i></i><i></i></div>
+          <div class="orbit orbit-two"><i></i><i></i></div>
+          <div class="core-glow"></div>
+          <div class="detective-portrait" id="overlay-portrait">
+            <img src="/static/acid-detective.png" alt="A.C.I.D. detective" onerror="this.style.display='none'" />
+            <div class="portrait-vignette"></div>
+          </div>
+          <div class="scan-line"></div>
+        </div>
+      </div>
+      <div class="processing-info">
+        <span class="kicker" id="overlay-kicker">Autonomous case processing</span>
+        <h2 id="overlay-title">A.C.I.D. Initializing</h2>
+        <p id="overlay-desc">Mapping every signal. Testing every statement.</p>
+        <div class="progress-bar"><i id="overlay-progress"></i></div>
+        <div class="progress-number"><span id="overlay-percent">0</span><span>%</span></div>
+        <div class="process-steps" id="process-steps"></div>
+        <button class="run-button reveal hidden" id="overlay-reveal" style="margin-top:22px">
+          <span>
+            <strong>Reveal findings</strong>
+            <small>Open updated case intelligence</small>
+          </span>
+          <span class="icon" data-icon="arrow"></span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <script src="/static/app.js"></script>
+</body>
+</html>
