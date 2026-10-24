@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # DEDUCE — AI Investigation Engine
 
 DEDUCE is an AI detective that investigates fictional cases using **evidence**, not roleplay. You feed it witness statements, chat logs, emails, access logs, CCTV descriptions, and documents — and it produces a structured, evidence-grounded investigation: verified facts, a timeline, contradictions, hypotheses, and honest unknowns.
@@ -320,3 +321,6 @@ Run it in the background with `systemd`, `pm2`, or `nohup` for persistence.
 - **"No LLM providers configured"** — no API keys are set in `backend/.env`.
 - **Port 8000 already in use** — kill the old process or use `--port 8001`.
 - **DB errors after moving files** — delete `backend/data/deduce.db` and restart; it's recreated automatically.
+=======
+# A.C.I.D.
+>>>>>>> 1096266a786efd4cc4d66f94c997454068d11ce3
